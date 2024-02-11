@@ -65,7 +65,7 @@ const siteLinksList = computed(() => {
 const siteIcon = {
   Forumbee,
   Blog,
-  Cloud,
+  Image,
   Compass,
   Fire,
   LaptopCode,
