@@ -23,39 +23,9 @@
       /> -->
     </div>
   </div>
-  <span class="text">
-    <p id="htmer_time">{{ startDateText }}</p>
-  </span>
 </template>
 
 <script setup>
-let startDate = ref(import.meta.env.VITE_SITE_START);
-let startDateText = ref(null);
-
-// 建站日期统计函数
-const siteDateStatistics = (startDate) => {
-    const currentDate = new Date();
-    const differenceInTime = currentDate.getTime() - startDate.getTime();
-    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
-    const differenceInMonths = differenceInDays / 30;
-    const differenceInYears = differenceInMonths / 12;
-    if (differenceInYears >= 1) {
-        return `本站已经苟活了 ${Math.floor(differenceInYears)} 年 ${Math.floor(differenceInMonths % 12)} 月 ${Math.round(differenceInDays % 30)} 天`;
-    } else if (differenceInMonths >= 1) {
-        return `本站已经苟活了 ${Math.floor(differenceInMonths)} 月 ${Math.round(differenceInDays % 30)} 天`;
-    } else {
-        return `本站已经苟活了 ${Math.round(differenceInDays)} 天`;
-    }
-}
-
-onMounted(() => {
-    startDateText.value = siteDateStatistics(new Date(startDate.value));
-});
-
-
-
-
-  
 import { HourglassFull } from "@icon-park/vue-next";
 import { getTimeCapsule, siteDateStatistics } from "@/utils/getTime.js";
 import { mainStore } from "@/store";
